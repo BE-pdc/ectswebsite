@@ -1,0 +1,27 @@
+.traject {
+    padding: 0px;
+    margin: auto;
+    width: 75%;
+}
+
+.content-item-body {
+    padding-top: 10px;
+    display: block;
+    padding-bottom: 10px;
+}
+
+.content-item-body-year-name{
+    text-decoration: none;
+    color: #232226;
+    font-family: foco, Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    line-height: 23px;
+    font-size: 16px;
+    font-style: normal;
+    padding-top: 5px;
+    margin-left: 25px;
+}
+
+.content-item-body-year-name:hover {
+    color: #C40009;
+}

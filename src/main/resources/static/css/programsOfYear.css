@@ -1,0 +1,212 @@
+.program-list {
+    margin: 0px;
+    padding: 0px;
+}
+
+.program:hover {
+    color: purple;
+}
+
+.program:active {
+    color: red;
+}
+
+.form-control {
+    border-radius: 5px;
+    border-style: none;
+    background-color: #F2F2F2;
+    font-size: 14px;
+    height: 40px;
+    text-align: center;
+    font-family: foco, Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    margin-left: 25px;
+}
+
+.form-control:focus {
+    outline: 0;
+}
+
+.searchProgram {
+    width: 40%;
+    height: 40px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: #F2F2F2;
+    font-size: 16px;
+    padding-left: 10px;
+    margin: 0px;
+    font-family: foco, Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.searchProgram:focus {
+    outline: 0;
+}
+
+.searchProgram::placeholder {
+    color: #68676C;
+}
+
+.content-filter {
+    padding: 0px;
+    margin-left: 50px;
+    float: left;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    padding: 0px;
+    margin-left: 50px;
+    float: left;
+    margin-top: 20px;
+    min-width: 25%;
+    max-width: 25%;
+}
+
+.programs-content {
+    padding: 0px;
+    margin-left: 25px;
+    float: left;
+    width: 65%;
+    margin-top: 20px;
+    margin-right: 50px;
+    min-width: 25%;
+    max-width: 60%;
+}
+
+.filter-item {
+    text-decoration: none;
+    color: #232226;
+    font-family: foco, Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    line-height: 23px;
+    font-size: 16px;
+    font-style: normal;
+    padding-top: 5px;
+    margin-right: 10px;
+}
+
+.content-item-header {
+    min-width: 100%;
+}
+
+.content-item-body {
+    width: 100%
+}
+
+.content-item-body-type {
+    float: left;
+    margin-bottom: 20px;
+    width: 40%;
+}
+
+.content-item-body-studyarea {
+    float: left;
+    width: 40%
+}
+
+.content-item-link {
+    background-color: #C40009;
+    width: 25px;
+    height: 75px;
+    float: right;
+    margin-top: 10px;
+    margin-right: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.program-info {
+    width: 100%;
+}
+
+.content-item-link:hover {
+    background-color: black;
+    transition: all 0.2s ease-in-out 0s;
+}
+
+a.content-item-link::before {
+    content: "";
+    transition: all 0.2s ease-in-out 0s;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    border: solid #ffffff;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    margin-top: 32px;
+    margin-left: 5px;
+}
+
+h6 {
+    font-family: foco, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    font-style: normal;
+    letter-spacing: 1px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+
+span, p {
+    font-family: foco, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    font-style: normal;
+    padding-top: 5px;
+}
+
+span {
+    padding-left: 3px;
+}
+
+p {
+    padding-left: 20px;
+    padding-bottom: 5px;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.content-item-body-traject-name {
+    text-decoration: none;
+    color: black;
+    font-family: foco, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    font-style: normal;
+    padding-top: 5px;
+}
+
+.content-item-body-traject-name:hover {
+    color: #C40009;
+}
+
+.academic-year-title {
+    font-family: league-gothic, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-style: normal;
+    font-size: 28px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.filter-title{
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: white;
+    border-style: none;
+    font-family: league-gothic, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 28px;
+    color: black;
+    cursor: pointer;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    margin-left: 50px;
+}

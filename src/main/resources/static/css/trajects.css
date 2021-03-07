@@ -1,0 +1,73 @@
+.traject {
+    font-family: foco, Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 125%;
+    text-decoration: none;
+}
+
+.traject:hover {
+    color: purple;
+}
+
+.traject:active {
+    color: red;
+}
+.traject-year {
+    text-decoration: none;
+    color: #477fb9;
+}
+
+.traject-year:hover {
+    color: purple;
+}
+
+.traject-year:active {
+    color: red;
+}
+
+.trajects-content {
+    padding: 0px;
+    margin: auto;
+    width: 75%;
+}
+
+.traject-title {
+    padding-top: 20px;
+    padding-bottom: 5px;
+    margin-left: 18px;
+    text-decoration: none;
+    color: #232226;
+    font-family: foco, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 20px;
+    font-style: normal;
+}
+
+.traject-title:hover {
+    color: #97000C;
+}
+
+.trajects {
+    padding: 0px;
+    margin-left: 50px;
+    float: left;
+    width: 75%;
+}
+
+.content-item-body-year-name{
+    text-decoration: none;
+    color: #232226;
+    font-family: foco, Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    line-height: 23px;
+    font-size: 16px;
+    font-style: normal;
+    padding-top: 5px;
+    margin-left: 25px;
+}
+
+.content-item-body-year-name:hover {
+    color: #C40009;
+}

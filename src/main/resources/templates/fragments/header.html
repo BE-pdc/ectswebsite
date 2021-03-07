@@ -1,0 +1,22 @@
+<header th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div th:class="logo">
+        <a th:href="'/opleidingen/' + ${schoolYear}"><img th:src="@{/img/logo-ap.svg}" alt="logo not found"></a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="https://www.ap.be/onze-troeven" th:text="#{label.studying}">Studeren</a></li>
+            <li><a href="https://www.ap.be/ap-to-date" th:text="#{label.news}">Nieuws</a></li>
+            <li><a href="https://www.ap.be/ap-dna" th:text="#{label.aboutUs}">Over ons</a></li>
+        </ul>
+    </nav>
+    <div class="search-language">
+        <div class="search">
+            <input oninput="redirectToProgram()" id="prog" list="programs" type="text" size="50" placeholder="Zoek naar een opleiding" th:placeholder="#{placeholder.searchProgram}">
+            <datalist id="programs">
+                <option th:each="program : ${programs}" th:text="${program.name} + ' (' + ${program.programCode} + ')'"></option>
+            </datalist>
+        </div>
+        <span th:if="#{lang.language} == 'NL'"  th:with="currentUrl=(${@currentUrlWithoutParam.apply('lang')})" class="language" th:onclick="'window.location.href=\'' + @{${currentUrl}(lang=en)}+'\''" th:text="#{lang.en}">EN</span>
+        <span th:if="#{lang.language} == 'EN'"  th:with="currentUrl=(${@currentUrlWithoutParam.apply('lang')})" class="language" th:onclick="'window.location.href=\'' + @{${currentUrl}(lang=nl)}+'\''" th:text="#{lang.nl}">NL</span>
+    </div>
+</header>

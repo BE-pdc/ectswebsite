@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript" th:src="@{/js/redirect.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/breadcrumb.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/wrapper.css}">
+    <link rel="stylesheet" th:href="@{/css/traject.css}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="wrapper">
+    <div th:replace="fragments/header :: header"></div>
+    <div class="breadcrumb-container">
+        <ol class="breadcrumb">
+            <li>
+                <a th:href="'/opleidingen/' + ${schoolYear}"
+                   th:text="'» ' + ${schoolYear}"></a>
+            </li>
+            <li>
+                <a th:href="'/opleidingen/' + ${schoolYear} + '/' + ${programCode}"
+                   th:text="'» ' + ${programCode}"></a>
+            </li>
+            <li th:text="'» ' + ${opltraject}"></li>
+        </ol>
+    </div><div style="clear: both"></div>
+    <div class="traject">
+        <div class="content-item-header">
+            <h5>
+                <button class="content-item-header-name" id="content-item-header-name"
+                        th:onclick="|hideShow(${traject.opltraject})|"
+                        th:text="${traject.name}"></button>
+            </h5>
+        </div>
+        <div class="content-item-body" th:id="${traject.opltraject}">
+            <ul class="specializations" th:each = "trajectOfSpecialization: ${trajects}">
+                <li id = "year" class="traject-years" th:each="year: ${trajectOfSpecialization.yearDtos}">
+                    <a class="content-item-body-year-name"
+                       th:href="'/opleidingen/' + ${schoolYear} + '/' + ${programCode} + '/' + ${trajectOfSpecialization.opltraject} + '/' + ${year.traject}"
+                       th:text="${year.name}">
+                    </a>
+                </li>
+                </br>
+            </ul>
+        </div>
+    </div>
+    <div style="clear: both"></div>
+    <div th:replace="fragments/footer :: footer"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:clear="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/javascript" th:src="@{/js/programsOfYear.js}"></script>
+    <script type="text/javascript" th:src="@{/js/redirect.js}"></script>
+    <script type="text/javascript" th:src="@{/js/showHide.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/programsOfYear.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/wrapper.css}">
+</head>
+<body>
+<div class="wrapper">
+    <div class="content-wrap">
+        <div th:replace="fragments/header :: header"></div>
+        <div class="content-filter" id="content-filter">
+            <div class="academic-year-filter">
+                <h3 class="main-title" th:text="#{label.academicYear}">Academic year</h3>
+                <select class="form-control" id="academiejaren"
+                        onchange="document.location.href='/opleidingen/' + this.value">
+                    <option class="academicYear" th:each="academiejaar : ${academiejaren}"
+                            th:value="${academiejaar}"
+                            th:text="${academiejaar}" th:selected="(${schoolYear}==*{academiejaar})"></option>
+                </select>
+                <br/>
+            </div>
+            <div class="study-area-filter">
+                <h3>
+                    <button class="filter-title" th:onclick="|hideShow('programType')|" th:text="#{label.programType}">Opleidingstype</button>
+                </h3>
+                <ul id="programType">
+                    <li class="filter-item" th:each="programType: ${programTypes}">
+                        <input class="filter-checkbox" name="filter-checkbox-programType" type="checkbox"
+                               th:text="${programType}" th:value="${#strings.toLowerCase(programType)}"
+                               th:onclick="filtering()">
+                    </li>
+                </ul>
+            </div>
+            <div class="study-type-filter">
+                <h3><button class="filter-title" th:onclick="|hideShow('studyType')|" th:text="#{label.fieldOfStudy}">Studiegebied</button></h3>
+                <ul id="studyType">
+                    <li class="filter-item" th:each="fieldOfStudy: ${fieldOfStudies}">
+                        <input class="filter-checkbox" name="filter-checkbox-fieldOfStudy" type="checkbox"
+                               th:if="${fieldOfStudy != ''}"
+                               th:text="${fieldOfStudy}" th:value="${#strings.toLowerCase(fieldOfStudy)}"
+                               th:onclick="filtering()">
+                    </li>
+                </ul>
+            </div>
+            <div class="specialization-filter">
+                <h3><button class="filter-title" th:onclick="|hideShow('specialization')|" th:text="#{label.specialization}">Afstudeerrichting</button></h3>
+                <ul id="specialization">
+                    <li class="filter-item" th:each="specialization: ${specializations}">
+                        <input class="filter-checkbox" name="filter-checkbox-specialization" type="checkbox"
+                               th:if="${specialization != ''}"
+                               th:text="${specialization}" th:value="${#strings.toLowerCase(specialization)}"
+                               th:onclick="filtering()">
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="programs-content">
+            <div class="program-list-search">
+                <input class="searchProgram" id="searchProgram" type="text" onkeyup="filtering()"
+                       th:placeholder="#{placeholder.searchProgram}">
+            </div>
+            <h3 class="academic-year-title" th:text="#{label.academicYear}+' '+${schoolYear}"></h3>
+            <ul class="program-list" id="sortList" th:each="program: ${programs}">
+                <li class="programs" th:value="${program.name}">
+                    <div class="content-item">
+                        <div class="content-item-header">
+                            <h5>
+                                <button class="content-item-header-name" id="content-item-header-name"
+                                        th:onclick="|showHide(${program.program})|"
+                                        th:text="${program.name}"
+                                        th:value="${program.name}"></button>
+                            </h5>
+                        </div>
+                        <div class="content-item-body" th:id="${program.program}">
+                            <ul class="program-info">
+                                <li class="content-item-body-type">
+                                    <span th:if="${program.programType != ''}">
+                                        <h6 th:text="#{label.programType}">TYPE</h6>
+                                        <p class="content-item-programType" th:value="${#strings.toLowerCase(program.programType)}"
+                                           th:text="${#strings.capitalize(program.programType)}"></p>
+                                    </span>
+                                </li>
+                                <li class="content-item-body-fieldOfStudy">
+                                    <h6 th:if="${program.fieldOfStudy != ''}" th:text="#{label.fieldOfStudy}">STUDY
+                                        AREA</h6>
+                                    <p class="content-item-fieldOfStudy" th:value="${#strings.toLowerCase(program.fieldOfStudy)}"
+                                       th:text="${#strings.capitalize(program.fieldOfStudy)}"></p>
+                                </li>
+                                <li>
+                                    <a class="content-item-link"
+                                       th:href="@{'/opleidingen/' + ${schoolYear} + '/' + ${program.programCode}}"></a>
+                                </li>
+                                <div style="clear: both"></div>
+                                <hr/>
+                                <li class="content-item-body-trajects">
+                                    <h6 th:text="#{label.trajects}" th:if="${program.trajects}">TRAJECTS</h6>
+                                    <div th:each="traject: ${program.trajects}">
+                                        <a class="content-item-body-traject-name"
+                                           th:href="@{'/opleidingen/' + ${schoolYear} + '/' + ${program.programCode} + '/' + ${traject.opltraject}}">
+                                            <p th:text="${traject.name}"></p>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="content-item-body-sspecialization">
+                                    <h6 th:text="#{label.specialization}" th:if="${program.specializations}">Specializations</h6>
+                                    <div class="content-item-specialization">
+                                        <p th:each="specialization: ${program.specializations}" th:value="${#strings.toLowerCase(specialization.name)}"
+                                           th:text="${#strings.capitalize(specialization.name)}"></p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div style="clear: both"></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div style="clear: both"></div>
+    </div>
+    <div style="clear: both"></div>
+    <div th:replace="fragments/footer :: footer"></div>
+</div>
+</body>
+</html>

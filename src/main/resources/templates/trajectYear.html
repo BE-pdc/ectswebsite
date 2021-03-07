@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" th:src="@{/js/redirect.js}"></script>
+    <script type="text/javascript" th:src="@{/js/showHide.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/breadcrumb.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/wrapper.css}">
+    <link rel="stylesheet" th:href="@{/css/trajectYear.css}">
+    <title>Title</title>
+</head>
+<body>
+<div class="wrapper">
+    <div class="content-wrap">
+        <div th:replace="fragments/header :: header"></div>
+        <div class="breadcrumb-container">
+            <ol class="breadcrumb">
+                <li>
+                    <a th:href="'/opleidingen/' + ${schoolYear}"
+                       th:text="'» ' + ${schoolYear}"></a>
+                </li>
+                <li>
+                    <a th:href="'/opleidingen/' + ${schoolYear} + '/' + ${programCode}"
+                       th:text="'» ' + ${programCode}"></a>
+                </li>
+                <li>
+                    <a th:href="'/opleidingen/' + ${schoolYear} + '/' + ${programCode} + '/' + ${opltraject}"
+                       th:text="'» ' + ${opltraject}"></a>
+                </li>
+                <li th:text="'» ' + ${deeltraject}"></li>
+            </ol>
+        </div>
+        <div style="clear: both"></div>
+        <div class="traject-year">
+            <div class="content-item-header">
+                <h5 class="content-item-header-name" style="cursor: auto" th:text="${trajectYear.name}"></h5>
+            </div>
+            <div class="content-item-body" th:id="${trajectYear.traject}">
+                <table class="courses-table">
+                    <thead>
+                    <tr>
+                        <th class="first-row-title" th:text="#{label.course}">Course</th>
+                        <th class="sub-title">SP</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="courses" th:each="course: ${trajectYear.courses}">
+                        <td class="courses">
+                            <a class="content-item-body-course-name" th:href="${course.ects}"
+                               th:text="${course.name}"></a>
+                        </td>
+                        <td class="studypoints">
+                            <span th:text="${course.studypoints}"></span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="options" th:if="${trajectYear.blocks}">
+                    <div th:each="option: ${trajectYear.blocks}">
+                        <div class="option-item-header">
+                            <h5>
+                                <button class="content-item-header-name"
+                                        th:onclick="|showHide(${option.choiceOption})|"
+                                        th:text="'Keuzepakket ' + ${option.naam}"></button>
+                            </h5>
+                        </div>
+                        <div style="clear: both;"></div>
+                        <div class="option-item-body" th:id="${option.choiceOption}">
+                            <table class="options-table">
+                                <thead>
+                                <tr>
+                                    <td class="sub-title" style="padding-left: 20px;"
+                                        th:text="${option.description}"></td>
+                                </tr>
+                                <tr>
+                                    <th class="first-row-title" th:text="#{label.course}">Course</th>
+                                    <th class="sub-title">SP</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="optCourse : ${option.courses}">
+                                    <td class="courses">
+                                        <a class="content-item-body-course-name" th:href="${optCourse.ects}"
+                                           th:text="${optCourse.name}"></a>
+                                    </td>
+                                    <td class="studypoints">
+                                        <span th:text="${optCourse.studypoints}"></span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="clear: both"></div>
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
+</div>
+</body>
+</html>

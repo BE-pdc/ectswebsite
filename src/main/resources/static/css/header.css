@@ -1,0 +1,104 @@
+@font-face {
+    font-family: 'league-gothic';
+    src: url('/fonts/LeagueGothic-Regular.otf') format('otf'),
+    url('/fonts/leaguegothic-regular-webfont.woff') format('woff'),
+    url('/fonts/leaguegothic-regular-webfont.woff2') format('woff2');
+
+}
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url('/fonts/Helvetica.woff2') format('woff2'),
+    url('/fonts/Helvetica.ttf') format('ttf'),
+    url('/fonts/Helvetica.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Foco';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Foco'), url('/fonts/FOCO.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Foco Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Foco Bold'), url('/fonts/FOCOBOLD.woff') format('woff');
+}
+header {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'league-gothic', 'Helvetica', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    height: 100px;
+}
+
+nav {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav li a {
+    display: block;
+    padding: 15px 30px;
+    text-decoration: none;
+    color: #68676C;
+    font-size: 24px;
+}
+
+nav li a:hover {
+    color: #C40009;
+}
+
+.search {
+    display: flex;
+    background-color: #F2F2F2;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+}
+
+.search input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.search-language {
+    display: flex;
+    align-items: center;
+}
+
+.language {
+    margin-left: 35px;
+    font-size: 14px;
+    color: #C40009;
+    cursor: pointer;
+    font-weight: 400;
+    line-height: 34px;
+}
+
+.language:hover {
+    cursor: pointer;
+    color: #b30004;
+}

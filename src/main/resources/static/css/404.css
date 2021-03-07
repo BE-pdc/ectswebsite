@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.error-container {
+    height: 100vh;
+    background-image: url("/img/AP_ELL.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.error-container-overlay {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.75);
+    height: 100%;
+}
+
+.error-content {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.ap-logo {
+    position: absolute;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.error-message {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Foco, serif;
+}
+
+.error-message h1 {
+    margin-bottom: 100px;
+    font-size: 10rem;
+    color: #e60005;
+}
+
+.error-message p {
+    padding: 10px;
+}
+
+.error-message a {
+    padding: 10px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #e60005;
+}
+
+.error-message a:hover {
+    color: #b30004;
+}
+

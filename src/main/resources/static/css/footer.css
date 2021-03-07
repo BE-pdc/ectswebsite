@@ -1,0 +1,33 @@
+footer {
+    background-color: #e60005;
+    font-family: foco,Helvetica,Arial,sans-serif;
+    color: #ffffff;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+
+footer p {
+    padding: 15px;
+    text-align: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+footer a:hover {
+    color: #ffd61f;
+}
+
+.rights-totop-container {
+    background-color: #b30004;
+    padding: 20px;
+}
+
+.rights-totop {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}

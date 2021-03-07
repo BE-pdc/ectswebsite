@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" th:src="@{/js/redirect.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/404.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <title>404 Error</title>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-container-overlay">
+            <div class="error-content">
+                <div class="ap-logo">
+                    <a href="/opleidingen/2018-19"><img th:src="@{/img/logo-ap.png}" width="300" alt="AP logo"></a>
+                </div>
+                <div class="error-message">
+                    <h1>404</h1>
+                    <p>Something went wrong!</p>
+                    <p>This page doesn't exist!</p>
+                    <a href="/opleidingen/2018-19">HOME</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
